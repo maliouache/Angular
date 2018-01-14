@@ -1,0 +1,52 @@
+<form class="form-default" (ngSubmit)="onSubmit()" role="form" #applicationform="ngForm">
+  <div class="form-group">
+    <label for="item_name">Name of the product:</label>
+    <input [(ngModel)]="name" name="name" type="text" class="form-control" id="item_name">
+  </div>
+  <div class="form-group">
+    <label for="item_brand">Brand of the product:</label>
+    <input [(ngModel)]="brand" name="brand" type="text" class="form-control" id="item_brand">
+  </div>
+  <div class="form-group">
+    <label for="item_price">Price of the product:</label>
+    <input [(ngModel)]="price" name="price" type="text" class="form-control" id="item_price">
+  </div>
+  <div class="form-group">
+    <label for="item_img">Price of the product:</label>
+    <input [(ngModel)]="imgFolder" name="imgFolder" type="file" class="form-control" id="item_img">
+  </div>
+  <div class="form-group">
+    <label for="cat">Select category:</label>
+    <select [(ngModel)]="category" name="category" class="form-control" id="cat">
+      <option>phone</option>
+      <option>vehicule</option>
+      <option>multimedia</option>
+      <option>new</option>
+    </select>
+  </div>
+  <!-- pour la geolocalisation -->
+  <p>Click the button to get your coordinates.</p>
+  <button class="btn btn-success" onclick="getLocation()">Get Location</button>
+  <p id="geolocalisation"></p>
+  <div class="form-group">
+    <label for="description">Description:</label>
+    <textarea [(ngModel)]="description" name="description" class="form-control" rows="5" id="description"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Add product</button>
+</form>
+<script type="text/javascript">
+  var x = document.getElementById("geolocalisation");
+
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+  }
+
+  function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude +
+      "<br>Longitude: " + position.coords.longitude;
+  }
+</script>

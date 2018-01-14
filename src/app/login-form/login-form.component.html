@@ -1,0 +1,28 @@
+<form (submit)="loginUser($event)" role="form" #loginform="ngForm">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input ngModel name="mail" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" #mail="ngModel" required>
+    <div [hidden]="mail.valid || mail.pristine"
+    class="alert alert-danger">email adress is required to connect
+    </div>
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input ngModel name="pass" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" #pass="ngModel" required>
+    <div [hidden]="pass.valid || pass.pristine" class="alert alert-danger">password is required</div>
+  </div>
+  <div class="form-check">
+    <label class="form-check-label">
+      <input type="checkbox" class="form-check-input">
+      Check me out
+    </label>
+  </div>
+  <div>
+    <br>
+    <a routerLink="/applicationForm">appuyer pour s'inscrir</a>
+  </div>
+  <br>
+  <button type="submit" class="btn btn-primary" [disabled]="!loginform.form.valid">Submit</button>
+  <div id="logIn_completion"></div>
+</form>

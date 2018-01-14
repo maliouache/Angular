@@ -1,0 +1,98 @@
+<!-- <h3>Details :</h3>
+
+<b>Brand :</b> {{itemComp[0].brand}}<br/>
+<b>Name :</b> {{itemComp[0].name}}<br/>
+<b>Price :</b> {{itemComp[0].price}} $<br/>
+<b>Category :</b> {{itemComp[0].category}} $<br/>
+<b>Description :</b> {{itemComp[0].description}}<br/>
+
+<img src="{{itemComp[0].imgFolder}}main" style="width:500px; height:320px;"><br> -->
+
+
+<div id="body-detail" data-spy="scroll" data-target=".navbar" data-offset="50">
+  <!-- Wrapper for slides -->
+  <div *ngIf="itemComp[0].imgFolder">
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="{{itemComp[0].imgFolder}}main" width="1200" height="700">
+        <div class="carousel-caption">
+          <h3>{{itemComp[0].name}}</h3>
+          <p>product of {{itemComp[0].brand}}.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!itemComp[0].imgFolder">
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="assets/images/default/main" width="1200" height="700">
+        <div class="carousel-caption">
+          <h3>{{itemComp[0].name}}</h3>
+          <p>product of {{itemComp[0].brand}}.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Container (The Band Section) -->
+  <div id="band" class="container text-center">
+    <h3>DESCRIPTION</h3>
+    <p>
+      <em>By owner!</em>
+    </p>
+    <p>{{itemComp[0].description}}.</p>
+    <br>
+  </div>
+  <div id="productPrice" style="text-align:center;">
+    <p>{{itemComp[0].price}} $</p>
+  </div>
+  <!-- Container (TOUR Section) -->
+  <div *ngIf="connected==itemComp[0].owner">
+    <div style="text-align:center;">
+      <button class="btn" data-toggle="modal" data-target="#myModal">Remove The product</button>
+    </div>
+  </div>
+  <div *ngIf="connected!=itemComp[0].owner">
+    <div style="text-align:center;">
+      <button [routerLink]="['/shipping',itemComp[0]._id]" class="btn" data-toggle="modal" data-target="#myModal" ShippingMethodComponent>Purchase The product</button>
+    </div>
+  </div>
+  <!-- Container (Contact Section) -->
+  <div id="contact" class="container">
+    <h3 class="text-center">Contact</h3>
+    <p class="text-center">
+      <em>Ask the owner!</em>
+    </p>
+
+    <div class="row">
+      <div class="col-md-4">
+        <p>Need more details? Drop a note.</p>
+        <p>
+          <span class="glyphicon glyphicon-map-marker"></span>GetLocation, US</p>
+        <p>
+          <span class="glyphicon glyphicon-phone"></span>Phone:</p>
+        <p>
+          <span class="glyphicon glyphicon-envelope"></span>Email:{{itemComp[0].owner}}</p>
+      </div>
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-sm-6 form-group">
+            <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+          </div>
+          <div class="col-sm-6 form-group">
+            <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+          </div>
+        </div>
+        <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea>
+        <br>
+        <div class="row">
+          <div class="col-md-12 form-group">
+            <button class="btn pull-right" type="submit">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+  </div>
+
+</div>
