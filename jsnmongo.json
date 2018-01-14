@@ -1,0 +1,18 @@
+[
+    {"name":"Iphone 5c","category":"phone","brand":"Apple","price":"229","description":"il date de quelques années mais reste d'actualité comme meme et reste dans la haute gamme","imgFolder":"assets/images/1/"},
+    {"name":"Iphone X","category":"phone","brand":"Apple","price":"999","description":"c'est la pointe de la technologie moderne a essayeer rapidement","imgFolder":"assets/images/2/"},
+    {"name":"Asus Zenphone 4","category":"phone","brand":"Asus","price":"399","description":"un tres bon telephone avec toutes les importantes fonctionalités!!","imgFolder":"assets/images/3/"},
+    {"name":"Samsung galaxy s8","category":"phone","brand":"Samsung","price":"578","description":"beaucoup de gens te disent que les samsung sont et reste de la basse qualite mais en le prenant dans les mains, ce telephone peut vous changer l'avis","imgFolder":"assets/images/4/"},
+    {"name":"Iphone 5c","category":"phone","brand":"Apple","price":"229","description":"il date de quelques années mais reste d'actualité comme meme et reste dans la haute gamme","imgFolder":"assets/images/5/"},
+    {"name":"Iphone X","category":"phone","brand":"Apple","price":"999","description":"c'est la pointe de la technologie moderne a essayeer rapidement","imgFolder":"assets/images/6/"},
+    {"name":"Asus Zenphone 4","category":"phone","brand":"Asus","price":"399","description":"un tres bon telephone avec toutes les importantes fonctionalités!!","imgFolder":"assets/images/7/"},
+    {"name":"Samsung galaxy s8","category":"phone","brand":"Samsung","price":"578","description":"beaucoup de gens te disent que les samsung sont et reste de la basse qualite mais en le prenant dans les mains, ce telephone peut vous changer l'avis","imgFolder":"assets/images/8/"},
+    {"name":"audi A3","category":"vehicule","brand":"Audi","price":"1200","description":"une tres belle voiture avec un controle technique recent et elle a été customisée","imgFolder":"assets/images/9/"},
+    {"name":"renault twingo","category":"vehicule","brand":"Renault","price":"850","description":"petite mais pratique surtout pour les petits boulots etudiants ;)","imgFolder":"assets/images/10/"},
+    {"name":"peugeot 106","category":"vehicule","brand":"Peugeot","price":"450","description":"controle technique à refaire et freins a revoir sinon la voiture est bien conservée !!","imgFolder":"assets/images/11/"},
+    {"name":"opel astra","category":"vehicule","brand":"Opel","price":"1100","description":"la voiture est comme neuve, une affaire a ne pas rater, prix negociable a la limite du raisonable ;)","imgFolder":"assets/images/12/"},
+    {"name":"Renault trafic","category":"vehicule","brand":"Renault","price":"900","description":"ancien et la carossorie est plutot amochée mais il est toujours roulant et peut aider!","imgFolder":"assets/images/13/"},
+    {"name":"tablette Asus","category":"multimedia","brand":"Asus","price":"79","description":"elle est plutot pratique pour la lecture des livres electroniques est la navigation sur internet, moi j'ai bien aimé","imgFolder":"assets/images/14/"},
+    {"name":"battrie externe","category":"multimedia","brand":"mi","price":"10","description":"une battrie de 10000mAh qui peut vous tenir lors d'un voyage et peut vous recharger votre telephone sur plusieurs fois, maintenant l'utilisation des smartphones est elevée donc ça servira toujours","imgFolder":"assets/images/15/"},
+    {"name":"","category":"multimedia","brand":"","price":"","description":"","imgFolder":"assets/images/16/"}
+]
