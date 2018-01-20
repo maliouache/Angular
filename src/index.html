@@ -4,13 +4,17 @@
   <meta charset="utf-8">
   <title>ProjectAngular</title>
   <base href="/">
-
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+
 </head>
 <body>
   <app-root></app-root>
 <script async defer
-		src="https://maps.googleapis.com/maps/api/js?key= AIzaSyCPIqMss7WGU-sWaI3YBBvMQxsZWm4Nvs4&callback=initMap">
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPIqMss7WGU-sWaI3YBBvMQxsZWm4Nvs4&callback=initMap">
 </script>
 <script>
 	  var marker;
@@ -35,6 +39,27 @@
         	    marker.setAnimation(google.maps.Animation.BOUNCE);
         	  }
         }
+</script>
+<script type="text/javascript">
+  
+
+  function getLocation() {
+    var x = document.getElementById("geolocalisation");
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+  }
+
+  function showPosition(position) {
+    var lat = document.getElementById("item_latitude");
+    var long = document.getElementById("item_longitude");
+    lat.value =position.coords.latitude;
+    long.value=position.coords.longitude;
+    geo_coord_long.style.display="block";
+    geo_coord_lat.style.display="block";
+  }
 </script>
 </body>
 </html>

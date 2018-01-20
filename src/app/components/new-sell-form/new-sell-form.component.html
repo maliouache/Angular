@@ -1,52 +1,65 @@
-<form class="form-default" (ngSubmit)="onSubmit()" role="form" #applicationform="ngForm">
+<form class="form-horizontal" (ngSubmit)="onSubmit()" role="form" #applicationform="ngForm">
   <div class="form-group">
-    <label for="item_name">Name of the product:</label>
-    <input [(ngModel)]="name" name="name" type="text" class="form-control" id="item_name">
+    <label class="control-label col-sm-2" for="item_name">Name of the product:</label>
+    <div class="col-sm-10">
+      <input [(ngModel)]="name" name="item_name" type="text" class="form-control" id="item_name">
+    </div>
   </div>
   <div class="form-group">
-    <label for="item_brand">Brand of the product:</label>
-    <input [(ngModel)]="brand" name="brand" type="text" class="form-control" id="item_brand">
+    <label class="control-label col-sm-2" for="item_brand">Brand of the product:</label>
+    <div class="col-sm-10">
+      <input [(ngModel)]="brand" name="item_brand" type="text" class="form-control" id="item_brand">
+    </div>
   </div>
   <div class="form-group">
-    <label for="item_price">Price of the product:</label>
-    <input [(ngModel)]="price" name="price" type="text" class="form-control" id="item_price">
+    <label class="control-label col-sm-2" for="item_price">Price of the product:</label>
+    <div class="col-sm-10">
+      <input [(ngModel)]="price" name="item_price" type="text" class="form-control" id="item_price">
+    </div>
   </div>
   <div class="form-group">
-    <label for="item_img">Price of the product:</label>
-    <input [(ngModel)]="imgFolder" name="imgFolder" type="file" class="form-control" id="item_img">
+    <label class="control-label col-sm-2" for="item_img">Image for the product:</label>
+    <div class="col-sm-10">
+      <input [(ngModel)]="imgFolder" name="item_img" type="file" class="form-control" id="item_img">
+    </div>
   </div>
+  <!-- <image-upload></image-upload> -->
   <div class="form-group">
-    <label for="cat">Select category:</label>
-    <select [(ngModel)]="category" name="category" class="form-control" id="cat">
-      <option>phone</option>
-      <option>vehicule</option>
-      <option>multimedia</option>
-      <option>new</option>
-    </select>
+    <label class="control-label col-sm-2" for="cat">Select category:</label>
+    <div class="col-sm-10">
+      <select [(ngModel)]="category" name="cat" class="form-control" id="cat">
+        <option>phone</option>
+        <option>vehicule</option>
+        <option>multimedia</option>
+        <option>new</option>
+      </select>
+    </div>
   </div>
   <!-- pour la geolocalisation -->
   <p>Click the button to get your coordinates.</p>
   <button class="btn btn-success" onclick="getLocation()">Get Location</button>
+  <div class="form-group" style="display:none;" id="geo_coord_long">
+    <label class="control-label col-sm-2" for="item_longitude">Your longitude:</label>
+    <div class="col-sm-10">
+      <input [(ngModel)]="longitude" name="item_longitude" type="text" class="form-control" id="item_longitude">
+    </div>
+  </div>
+  <div class="form-group" style="display:none;" id="geo_coord_lat">
+    <label class="control-label col-sm-2" for="item_latitude">Your latitude:</label>
+    <div class="col-sm-10">
+      <input [(ngModel)]="latitude" name="item_latitude" type="text" class="form-control" id="item_latitude">
+    </div>
+  </div>
   <p id="geolocalisation"></p>
   <div class="form-group">
-    <label for="description">Description:</label>
-    <textarea [(ngModel)]="description" name="description" class="form-control" rows="5" id="description"></textarea>
+    <label class="control-label col-sm-2" for="description">Description:</label>
+    <div class="col-sm-10">
+      <textarea [(ngModel)]="description" name="description" class="form-control" rows="5" id="description"></textarea>
+    </div>
   </div>
-  <button type="submit" class="btn btn-primary">Add product</button>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-primary">Add product</button>
+    </div>
+  </div>
 </form>
-<script type="text/javascript">
-  var x = document.getElementById("geolocalisation");
-
-  function getLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-      x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-  }
-
-  function showPosition(position) {
-    x.innerHTML = "Latitude: " + position.coords.latitude +
-      "<br>Longitude: " + position.coords.longitude;
-  }
-</script>

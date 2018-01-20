@@ -30,8 +30,30 @@ export class NewSellFormComponent implements OnInit {
       "brand":this.brand,
       "category":this.category,
       "price":this.price,
+      "latitude":this.latitude,
+      "longitude":this.longitude,
       "description":this.description});
     let res=this.addProd.addProduct(newProd);
-    console.log(newProd);
+    let reader=new FileReader();
+    console.log(this.imgFolder);
+    reader.readAsText(this.imgFolder);
+    console.log(reader.result);
   }
+
+  
+
+  // getLocation() {
+  //   let x:any = document.getElementById("geolocalisation");
+  //   if (navigator.geolocation) {
+  //     navigator.geolocation.getCurrentPosition(showPosition);
+  //   } else {
+  //     x.innerHTML = "Geolocation is not supported by this browser.";
+  //   }
+  // }
+
+  // showPosition(position) {
+  //   let x:any = document.getElementById("geolocalisation");
+  //   x.innerHTML = "Latitude: " + position.coords.latitude +
+  //     "<br>Longitude: " + position.coords.longitude;
+  // }
 }

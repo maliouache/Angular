@@ -92,7 +92,7 @@ const routes : Routes = [{
   
 @NgModule({
   declarations: [ AppComponent, ResearchComponent, DetailComponent, SiteHeaderComponent,ItemCatDirective,ItemCatComponent,ItemListCatComponent,DragAndDropComponent,DragAndDropDirective, ItemListCatDirective, SiteFooterComponent, LoginFormComponent, ConnectedSiteHeaderComponent, ApplicationFormComponent, ItemListSearchComponent, MySellsComponent, NewSellFormComponent, ShowCategoriesComponent, MyListSellsComponent, ShippingMethodComponent, PrivateShippingChoiceComponent ],
-  imports: [ BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(routes)],
+  imports: [ BrowserModule, FormsModule,ImageUploadModule.forRoot(), HttpModule, RouterModule.forRoot(routes)],
   providers: [ResearchService, DetailService, AddProductService, HttpModule, LogInService, AuthenGuard, AddUserService, CookieService],
   bootstrap: [AppComponent],
   exports: [SiteHeaderComponent]
