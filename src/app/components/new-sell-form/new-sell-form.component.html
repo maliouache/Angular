@@ -1,65 +1,67 @@
-<form class="form-horizontal" (ngSubmit)="onSubmit()" role="form" #applicationform="ngForm">
-  <div class="form-group">
-    <label class="control-label col-sm-2" for="item_name">Name of the product:</label>
-    <div class="col-sm-10">
-      <input [(ngModel)]="name" name="item_name" type="text" class="form-control" id="item_name" required/>
+<div style="width: 85%;margin:auto">
+  <form class="form-horizontal" (ngSubmit)="onSubmit()" role="form" #applicationform="ngForm">
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="item_name">Name of the product:</label>
+      <div class="col-sm-10">
+        <input [(ngModel)]="name" name="item_name" type="text" class="form-control" id="item_name" required/>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label class="control-label col-sm-2" for="item_brand">Brand of the product:</label>
-    <div class="col-sm-10">
-      <input [(ngModel)]="brand" name="item_brand" type="text" class="form-control" id="item_brand">
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="item_brand">Brand of the product:</label>
+      <div class="col-sm-10">
+        <input [(ngModel)]="brand" name="item_brand" type="text" class="form-control" id="item_brand">
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label class="control-label col-sm-2" for="item_price">Price of the product:</label>
-    <div class="col-sm-10">
-      <input [(ngModel)]="price" name="item_price" type="text" class="form-control" id="item_price">
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="item_price">Price of the product:</label>
+      <div class="col-sm-10">
+        <input [(ngModel)]="price" name="item_price" type="text" class="form-control" id="item_price">
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label class="control-label col-sm-2" for="item_img">Image for the product:</label>
-    <div class="col-sm-10">
-      <input [(ngModel)]="imgFolder" name="item_img" type="file" class="form-control" id="item_img">
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="item_img">Image for the product:</label>
+      <div class="col-sm-10">
+        <input [(ngModel)]="imgFolder" name="item_img" type="file" class="form-control" id="item_img">
+      </div>
     </div>
-  </div>
-  <!-- <image-upload></image-upload> -->
-  <div class="form-group">
-    <label class="control-label col-sm-2" for="cat">Select category:</label>
-    <div class="col-sm-10">
-      <select [(ngModel)]="category" name="cat" class="form-control" id="cat">
-        <option>phone</option>
-        <option>vehicule</option>
-        <option>multimedia</option>
-        <option>new</option>
-      </select>
+    <!-- <image-upload></image-upload> -->
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="cat">Select category:</label>
+      <div class="col-sm-10">
+        <select [(ngModel)]="category" name="cat" class="form-control" id="cat">
+          <option>phone</option>
+          <option>vehicule</option>
+          <option>multimedia</option>
+          <option>new</option>
+        </select>
+      </div>
     </div>
-  </div>
-  <!-- pour la geolocalisation -->
-  <p>Click the button to get your coordinates.</p>
-  <button class="btn btn-success" onclick="getLocation()">Get Location</button>
-  <div class="form-group" style="display:none;" id="geo_coord_long">
-    <label class="control-label col-sm-2" for="item_longitude">Your longitude:</label>
-    <div class="col-sm-10">
-      <input [(ngModel)]="longitude" name="item_longitude" type="text" class="form-control" id="item_longitude">
+    <!-- pour la geolocalisation -->
+    <p>Click the button to get your coordinates.</p>
+    <button class="btn btn-success" onclick="getLocation()">Get Location</button>
+    <div class="form-group" style="display:none;" id="geo_coord_long">
+      <label class="control-label col-sm-2" for="item_longitude">Your longitude:</label>
+      <div class="col-sm-10">
+        <input [(ngModel)]="longitude" name="item_longitude" type="text" class="form-control" id="item_longitude">
+      </div>
     </div>
-  </div>
-  <div class="form-group" style="display:none;" id="geo_coord_lat">
-    <label class="control-label col-sm-2" for="item_latitude">Your latitude:</label>
-    <div class="col-sm-10">
-      <input [(ngModel)]="latitude" name="item_latitude" type="text" class="form-control" id="item_latitude">
+    <div class="form-group" style="display:none;" id="geo_coord_lat">
+      <label class="control-label col-sm-2" for="item_latitude">Your latitude:</label>
+      <div class="col-sm-10">
+        <input [(ngModel)]="latitude" name="item_latitude" type="text" class="form-control" id="item_latitude">
+      </div>
     </div>
-  </div>
-  <p id="geolocalisation"></p>
-  <div class="form-group">
-    <label class="control-label col-sm-2" for="description">Description:</label>
-    <div class="col-sm-10">
-      <textarea [(ngModel)]="description" name="description" class="form-control" rows="5" id="description"></textarea>
+    <p id="geolocalisation"></p>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="description">Description:</label>
+      <div class="col-sm-10">
+        <textarea [(ngModel)]="description" name="description" class="form-control" rows="5" id="description"></textarea>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" (click)="save_product()" class="btn btn-primary">Add product</button>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" (click)="save_product()" class="btn btn-primary">Add product</button>
+      </div>
     </div>
-  </div>
-</form>
+  </form>
+</div>

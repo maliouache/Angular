@@ -22,5 +22,9 @@ export class AppComponent implements OnInit {
 
     }
   }
+  hidecompon(){
+    let div=document.getElementById('ComponIndex');
+    div.style.display="none";
+  }
 }
 

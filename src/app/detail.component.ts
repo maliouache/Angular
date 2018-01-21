@@ -42,6 +42,8 @@ export class DetailComponent implements OnInit {
             "email_recontact":this.message_email_recontact,
             "name_sender":this.message_name_recontact,
             "content":this.message_content,
+            "adddate":new Date(),
+            "productName":this.itemComp[0].name,
             "email_receiver":this.itemComp[0].owner,
             "seen":"no"});
         console.log(newMessage);
