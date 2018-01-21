@@ -2,13 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>ProjectAngular</title>
   <base href="/">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+  <title>Angular Project</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
 <body>
@@ -17,15 +16,14 @@
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPIqMss7WGU-sWaI3YBBvMQxsZWm4Nvs4&callback=initMap">
 </script>
 <script>
-	  var marker;
       function initMap() {
         var uluru = {lat: 43.6111, lng: 3.87667};
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 15,
           center: uluru
         });
-        marker = new google.maps.Marker({
-          position: {lat: 43.6111, lng: 3.87667},
+        var marker = new google.maps.Marker({
+          position: uluru,
           map: map,
           title: "vous etes ici",
           animation: google.maps.Animation.DROP
@@ -33,6 +31,7 @@
         marker.addListener('click', toggleBounce);
       }
         function toggleBounce() {
+        	// var marker;
         	  if (marker.getAnimation() !== null) {
         	    marker.setAnimation(null);
         	  } else {

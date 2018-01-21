@@ -49,50 +49,52 @@
   <!-- Container (TOUR Section) -->
   <div *ngIf="connected==itemComp[0].owner">
     <div style="text-align:center;">
-      <button class="btn" data-toggle="modal" data-target="#myModal">Remove The product</button>
+      <button (click)="remove_item(itemComp[0]._id)" class="btn" data-toggle="modal" data-target="#myModal">Remove The product</button>
     </div>
   </div>
   <div *ngIf="connected!=itemComp[0].owner">
     <div style="text-align:center;">
       <button [routerLink]="['/shipping',itemComp[0]._id]" class="btn" data-toggle="modal" data-target="#myModal" ShippingMethodComponent>Purchase The product</button>
     </div>
-  </div>
-  <!-- Container (Contact Section) -->
+    <!-- Container (Contact Section) -->
   <div id="contact" class="container">
-    <h3 class="text-center">Contact</h3>
-    <p class="text-center">
-      <em>Ask the owner!</em>
-    </p>
-
-    <div class="row">
-      <div class="col-md-4">
-        <p>Need more details? Drop a note.</p>
-        <p>
-          <span class="glyphicon glyphicon-map-marker"></span>GetLocation, US</p>
-        <p>
-          <span class="glyphicon glyphicon-phone"></span>Phone:</p>
-        <p>
-          <span class="glyphicon glyphicon-envelope"></span>Email:{{itemComp[0].owner}}</p>
-      </div>
-      <div class="col-md-8">
-        <div class="row">
-          <div class="col-sm-6 form-group">
-            <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
-          </div>
-          <div class="col-sm-6 form-group">
-            <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
-          </div>
+      <h3 class="text-center">Contact</h3>
+      <p class="text-center">
+        <em>Ask the owner!</em>
+      </p>
+  
+      <div class="row">
+        <div class="col-md-4">
+          <p>Need more details? Drop a note.</p>
+          <p>
+            <span class="glyphicon glyphicon-phone"></span>Phone:{{itemComp[0].owner_phone}}</p>
+          <p>
+            <span class="glyphicon glyphicon-envelope"></span>Email:{{itemComp[0].owner}}</p>
         </div>
-        <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea>
-        <br>
-        <div class="row">
-          <div class="col-md-12 form-group">
-            <button class="btn pull-right" type="submit">Send</button>
-          </div>
+        <div class="col-md-8">
+          <p style="color:green;">{{msg}}</p>
+          <form>
+            <div class="row">
+              <div class="col-sm-6 form-group">
+                <input class="form-control" [(ngModel)]="message_name_recontact" id="name" name="name" placeholder="Name" type="text" required>
+              </div>
+              <div class="col-sm-6 form-group">
+                <input class="form-control" [(ngModel)]="message_email_recontact" id="email" name="email" placeholder="Email" type="email" required>
+              </div>
+            </div>
+            <textarea class="form-control" [(ngModel)]="message_content" id="comments" name="comments" placeholder="Comment" rows="5"></textarea>
+            <br>
+            <div class="row">
+              <div class="col-md-12 form-group">
+                <button class="btn pull-right" (click)="send_message()" type="submit">Send</button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
+      <br>
     </div>
-    <br>
   </div>
+  
 
 </div>

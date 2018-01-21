@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {application } from './application';
 import {AddUserService} from '../services/add-user.service'
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-application-form',
@@ -14,9 +15,11 @@ export class ApplicationFormComponent implements OnInit {
   private model = new application();
   private existDeja:boolean;
   private submitted = false;
-  constructor(private adduser: AddUserService) {  }
+  constructor(private adduser: AddUserService,private router:Router) {  }
 
   ngOnInit() {
+    let div=document.getElementById('ComponIndex');
+    div.style.display="none";
   }
   pays = ['Afrique du Sud', 'Afghanistan', 'Albanie', 'Algérie','Allemagne','Andorre','Angola','Antigua-et-Barbuda','Arabie Saoudite','Argentine,Arménie','Australie','Autriche','Azerbaïdjan','Bahamas,Bahreïn','Bangladesh','Barbade','Belgique',
     'Belize','Bénin','Bhoutan','Biélorussie','Birmanie','Bolivie','Bosnie-Herzégovine','Botswana','Brésil','Brunei','Bulgarie','Burkina','Faso','Burundi','Cambodge','Cap-Vert','Cameroun','Canada','Chili','Chine','Chypre','Colombie','Comores','Corée du Nord','Corée du Sud','Costa Rica','Côte d’Ivoire','Croatie','Cuba','Danemark','Djibouti','Dominique','Égypte','Émirats arabes unis','Équateur','Érythrée','Espagne','Estonie','États-Unis','Éthiopie','Fidji','Finlande','France','Gabon','Gambie','Géorgie','Ghana',
@@ -42,7 +45,8 @@ export class ApplicationFormComponent implements OnInit {
       "inscription_time" : Math.floor(Date.now() / 1000)
       });
     // here we subscribe to the service to  add the user
-    let res=this.adduser.addUser(saveObject);    
+    let res=this.adduser.addUser(saveObject);
+    this.router.navigate(['login-form']);  
   }
 }
 

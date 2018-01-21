@@ -38,7 +38,7 @@ export class LogInService {
           
           // this.router.navigate(['/']);    
           location.reload(true);
-          window.location.assign("http://localhost:4200/")
+          window.location.assign("http://localhost:4200/home")
         }else{
           let s=document.getElementById("logIn_completion");
           s.innerHTML='<p style="color: red;">le mot de passe entré n\'est pas correcte</p>';

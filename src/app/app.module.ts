@@ -8,9 +8,6 @@ import { DetailComponent } from './detail.component';
 import { ResearchService } from './research.service';
 import { DetailService } from './detail.service';
 import { Http, HttpModule } from '@angular/http';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { TooltipModule } from 'ngx-bootstrap/tooltip';
-import { ModalModule } from 'ngx-bootstrap/modal';
 import { SiteHeaderComponent } from './site-header/site-header.component';
 import { SiteFooterComponent } from './site-footer/site-footer.component';
 import { LoginFormComponent } from './login-form/login-form.component';
@@ -41,6 +38,9 @@ import { Component } from '@angular/core/src/metadata/directives';
 import { GoogleMapsComponent } from './components/google-maps/google-maps.component';
 import {GoogleApiService} from './services/google-maps/shared/google-api.service'
 
+import { RemoveService } from './services/remove.service';
+import { MessagesComponent } from './components/messages/messages.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes : Routes = [{
   path : 'Products/:marque', 
@@ -75,6 +75,10 @@ const routes : Routes = [{
     component : NewSellFormComponent
   },
   {
+    path: 'Messages',
+    component: MessagesComponent
+  },
+  {
     path: 'applicationForm',
     component: ApplicationFormComponent
   },
@@ -94,15 +98,19 @@ const routes : Routes = [{
   {
     path: 'privateShipping/:id_item',
     component: PrivateShippingChoiceComponent
+  },
+  {
+    path: 'home',
+    component: HomeComponent
   }
 
 ];
 
   
 @NgModule({
-  declarations: [ AppComponent, ResearchComponent, DetailComponent, SiteHeaderComponent,ItemCatDirective,ItemCatComponent,ItemListCatComponent,DragAndDropComponent,DragAndDropDirective, ItemListCatDirective, SiteFooterComponent, LoginFormComponent, ConnectedSiteHeaderComponent, ApplicationFormComponent, ItemListSearchComponent, MySellsComponent, NewSellFormComponent, ShowCategoriesComponent, MyListSellsComponent, ShippingMethodComponent, PrivateShippingChoiceComponent, AddTrajetComponent, GoogleMapsComponent ],
+  declarations: [ AppComponent, ResearchComponent, DetailComponent, SiteHeaderComponent,ItemCatDirective,ItemCatComponent,ItemListCatComponent,DragAndDropComponent,DragAndDropDirective, ItemListCatDirective, SiteFooterComponent, LoginFormComponent, ConnectedSiteHeaderComponent, ApplicationFormComponent, ItemListSearchComponent, MySellsComponent, NewSellFormComponent, ShowCategoriesComponent, MyListSellsComponent, ShippingMethodComponent, PrivateShippingChoiceComponent, AddTrajetComponent, GoogleMapsComponent, HomeComponent, MessagesComponent ],
   imports: [ BrowserModule, FormsModule,ImageUploadModule.forRoot(), HttpModule, RouterModule.forRoot(routes)],
-  providers: [ResearchService,GoogleApiService, DetailService, AddProductService, HttpModule, LogInService, AuthenGuard, AddUserService, CookieService],
+  providers: [ResearchService, RemoveService, GoogleApiService, DetailService, AddProductService, HttpModule, LogInService, AuthenGuard, AddUserService, CookieService],
   bootstrap: [AppComponent],
   exports: [SiteHeaderComponent]
 })

@@ -72,6 +72,36 @@ mongoClient.connect(url, function (err, db) {
             else res.send('Data received:\n' + JSON.stringify(req.body));
         })
     });
+    app.post('/addMessage', jsonParser, function (req, res) {
+        db.collection("Messages").save(req.body, function (err) {
+            if (err) console.error(err);
+            else res.send('Data received:\n' + JSON.stringify(req.body));
+        })
+    });
+    app.post('/discardMessage', jsonParser, function (req, res) {
+        if (/[0-9a-f]{24}/.test(req.body._id)) {
+            db.collection("Messages").update({"_id": ObjectId(req.body._id)},{"seen":"yes"}, function (err) {
+                if (err) console.error(err);
+                else res.send('Data received:\n' + JSON.stringify(req.body));
+            })
+        }
+        else{
+            console.log('wrong id');
+        }
+    });
+    app.post('/removeProduct', jsonParser, function (req, res) {
+        // console.log(req);
+        if (/[0-9a-f]{24}/.test(req.body._id)) {
+            console.log('correct id'+req.body._id);
+            db.collection("Products").remove({ "_id": ObjectId(req.body._id) }, function (err){
+                if (err) console.error(err);
+                else res.send('Data removed:\n' + JSON.stringify(req.body._id));
+            })
+        }
+        else{
+            console.log('wrong id');
+        }
+    });
 
     app.get('/Users/:mail', function (req, res) {
         let mail = req.params.mail;
@@ -85,6 +115,17 @@ mongoClient.connect(url, function (err, db) {
             });
     });
 
+    app.get('/getNewMessages/:mail', function (req, res) {
+        let mail = req.params.mail;
+        let filtre = {}; filtre.email_receiver = mail; filtre.seen="no";
+        db.collection("Messages").find(filtre)
+            .toArray(function (err, documents) {
+                res.setHeader('Content-Type', 'application/json; charset=utf-8');
+                res.setHeader('Access-Control-Allow-Origin', '*');
+                var json = JSON.stringify(documents);
+                res.end(json);
+            });
+    });
 
     app.get('/Products/:marque', function (req, res) {
         let marque = req.params.marque;
