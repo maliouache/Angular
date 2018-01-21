@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AddProductService} from '../../services/add-product.service';
 import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-sell-form',
@@ -18,12 +19,14 @@ export class NewSellFormComponent implements OnInit {
   private latitude:Float32Array;
   private imgFolder:File;
   private all:any;
-  constructor(private addProd:AddProductService,public cookieService:CookieService) { }
+  private msg:String;
+
+  constructor(private router:Router,private addProd:AddProductService,public cookieService:CookieService) { }
 
   ngOnInit() {
   }
 
-  onSubmit(){
+  save_product(){
     let newProd = JSON.stringify({
       "owner":this.cookieService.get("ecomm"),
       "name":this.name,
@@ -34,26 +37,12 @@ export class NewSellFormComponent implements OnInit {
       "longitude":this.longitude,
       "description":this.description});
     let res=this.addProd.addProduct(newProd);
+    this.msg="The message has been sent";
+    this.router.navigate(['my-sells']);
     let reader=new FileReader();
     console.log(this.imgFolder);
     reader.readAsText(this.imgFolder);
     console.log(reader.result);
   }
 
-  
-
-  // getLocation() {
-  //   let x:any = document.getElementById("geolocalisation");
-  //   if (navigator.geolocation) {
-  //     navigator.geolocation.getCurrentPosition(showPosition);
-  //   } else {
-  //     x.innerHTML = "Geolocation is not supported by this browser.";
-  //   }
-  // }
-
-  // showPosition(position) {
-  //   let x:any = document.getElementById("geolocalisation");
-  //   x.innerHTML = "Latitude: " + position.coords.latitude +
-  //     "<br>Longitude: " + position.coords.longitude;
-  // }
 }

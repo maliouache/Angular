@@ -1,11 +1,12 @@
 <!-- pour le header -->
 <div *ngIf="exis">
-        <app-connected-site-header></app-connected-site-header>
+        <app-connected-site-header received="{{received_messages.length}}"></app-connected-site-header>
 </div>
 <div *ngIf="!exis">
         <app-site-header #notCon></app-site-header>
 </div>
 <br>
+
 <!-- pour le main body -->
 <router-outlet></router-outlet>
 <!-- pour le footer -->
