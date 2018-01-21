@@ -14,7 +14,7 @@
   <div *ngIf="itemComp[0].imgFolder">
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img src="{{itemComp[0].imgFolder}}main" width="1200" height="700">
+        <img src="{{itemComp[0].imgFolder}}" width="1200" height="700">
         <div class="carousel-caption">
           <h3>{{itemComp[0].name}}</h3>
           <p>product of {{itemComp[0].brand}}.</p>
@@ -25,7 +25,7 @@
   <div *ngIf="!itemComp[0].imgFolder">
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img src="assets/images/default/main" width="1200" height="700">
+        <img src="assets/images/default/" width="1200" height="700">
         <div class="carousel-caption">
           <h3>{{itemComp[0].name}}</h3>
           <p>product of {{itemComp[0].brand}}.</p>
