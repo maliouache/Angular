@@ -1,29 +1,34 @@
-<div *ngFor="let message of received_messages">
-            <!-- <li> -->
-                <button type="button" class="btn btn-default btn-block" (click)="showContentMessage(message._id)">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <td width="50%"><b>{{message.productName}}</b></td>
-                                <td width="30%">{{message.email_recontact}}
-                                </td>
-                                <td width="20%">{{message.adddate}}</td>
-                            </tr>
-                        </thead>
-                    </table>
-                </button>
-                <div id="{{message._id}}" class="collapse" style="display: none;">
-                    
-                    <table class="table">
-                        <tbody>
-                            <tr>
-                                <td width="80%">{{message.content}}
-                                </td>
-                                <td width="20%"><b>Read: {{message.seen}}</b>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            <!-- </li> -->
+<div style="width:80%;margin:auto;background-color: inherit;">
+    <div *ngFor="let message of received_messages">
+        <!-- <li> -->
+        <button type="button" class="btn btn-primary btn-block" (click)="showContentMessage(message._id)">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td width="50%">
+                            <b>{{message.productName}}</b>
+                        </td>
+                        <td width="30%">{{message.email_recontact}}
+                        </td>
+                        <td width="20%">{{message.adddate}}</td>
+                    </tr>
+                </thead>
+            </table>
+        </button>
+        <div id="{{message._id}}" class="collapse" style="display: none;">
+
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td width="80%">{{message.content}}
+                        </td>
+                        <td width="20%">
+                            <b>Read: {{message.seen}}</b>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- </li> -->
+    </div>
 </div>

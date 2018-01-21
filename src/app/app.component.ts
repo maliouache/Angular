@@ -12,8 +12,10 @@ export class AppComponent implements OnInit {
   private exis: boolean = this.cok.check('ecomm');
   private marque: string = "";
   private connected:String;
-  private received_messages: any;
+  private received_messages: any=0;
   ngOnInit() {
+    // let div=document.getElementById('ComponIndex');
+    // div.style.display="block";
     this.connected=this.cok.get('ecomm');
     if (this.exis){
       this.rem.getNewMessages(this.cok.get('ecomm')).subscribe(res =>{

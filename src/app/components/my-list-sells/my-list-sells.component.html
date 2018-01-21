@@ -1,1 +1,9 @@
-<app-item-list-search [itemList]="itemList"></app-item-list-search>
+<div *ngIf="itemList.length>0">
+    <h3>Here are your previous sells</h3>
+    <app-item-list-search [itemList]="itemList"></app-item-list-search>
+</div>
+<br><br><br><br><br> 
+<div *ngIf="itemList.length==0">
+    <h5>You don't have any product to sell</h5>
+</div>
+

@@ -15,7 +15,8 @@ export class LoginFormComponent implements OnInit {
 
 
   ngOnInit() {
-
+    let div=document.getElementById('ComponIndex');
+    div.style.display="none";
   }
   
 

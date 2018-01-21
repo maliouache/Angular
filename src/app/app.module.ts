@@ -38,6 +38,7 @@ import { ShippingMethodComponent } from './components/shipping-method/shipping-m
 import { PrivateShippingChoiceComponent } from './components/private-shipping-choice/private-shipping-choice.component';
 import { RemoveService } from './services/remove.service';
 import { MessagesComponent } from './components/messages/messages.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes : Routes = [{
   path : 'Products/:marque', 
@@ -91,13 +92,17 @@ const routes : Routes = [{
   {
     path: 'privateShipping/:id_item',
     component: PrivateShippingChoiceComponent
+  },
+  {
+    path: 'home',
+    component: HomeComponent
   }
 
 ];
 
   
 @NgModule({
-  declarations: [ AppComponent, ResearchComponent, DetailComponent, SiteHeaderComponent,ItemCatDirective,ItemCatComponent,ItemListCatComponent,DragAndDropComponent,DragAndDropDirective, ItemListCatDirective, SiteFooterComponent, LoginFormComponent, ConnectedSiteHeaderComponent, ApplicationFormComponent, ItemListSearchComponent, MySellsComponent, NewSellFormComponent, ShowCategoriesComponent, MyListSellsComponent, ShippingMethodComponent, PrivateShippingChoiceComponent, MessagesComponent ],
+  declarations: [ AppComponent, ResearchComponent, DetailComponent, SiteHeaderComponent,ItemCatDirective,ItemCatComponent,ItemListCatComponent,DragAndDropComponent,DragAndDropDirective, ItemListCatDirective, SiteFooterComponent, LoginFormComponent, ConnectedSiteHeaderComponent, ApplicationFormComponent, ItemListSearchComponent, MySellsComponent, NewSellFormComponent, ShowCategoriesComponent, MyListSellsComponent, ShippingMethodComponent, PrivateShippingChoiceComponent, MessagesComponent, HomeComponent ],
   imports: [ BrowserModule, FormsModule,ImageUploadModule.forRoot(), HttpModule, RouterModule.forRoot(routes)],
   providers: [ResearchService, DetailService, RemoveService, AddProductService, HttpModule, LogInService, AuthenGuard, AddUserService, CookieService],
   bootstrap: [AppComponent],
