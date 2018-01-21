@@ -17,7 +17,7 @@ export class NewSellFormComponent implements OnInit {
   private price:Number;
   private category:String;
   private description:String;
-  private longitude:Float32Array;
+  private longitude:number;
   private latitude:Float32Array;
   private filesToUpload:Array<File>;
   private all:any;

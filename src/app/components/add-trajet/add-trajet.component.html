@@ -1,0 +1,20 @@
+<body>
+  <div id="container">
+      <h1>Calcul d'itinéraire</h1>
+      <div id="destinationForm">
+          <form class="form-horizontal" (ngSubmit)="onSubmit()" role="form" #applicationform="ngForm">
+              <label>Point de départ :</label>
+              <input type="text" name="origin" id="origin">
+              <label>Destination :</label>
+              <input type="text" name="destination" id="destination">
+              <input type="button" value="Calculer l'itinéraire" (click)="ngAfterViewInit()">
+          </form>
+      </div>
+      <div id="panel"></div>
+      
+      <div id="map" #mapRef>
+          <p>Veuillez patienter pendant le chargement de la carte...</p>
+      </div>
+      <div id="googleMap" ></div>
+  </div>
+</body>

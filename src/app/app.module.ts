@@ -36,6 +36,11 @@ import { AddProductService } from './services/add-product.service';
 import { MyListSellsComponent } from './components/my-list-sells/my-list-sells.component';
 import { ShippingMethodComponent } from './components/shipping-method/shipping-method.component';
 import { PrivateShippingChoiceComponent } from './components/private-shipping-choice/private-shipping-choice.component';
+import { AddTrajetComponent } from './components/add-trajet/add-trajet.component';
+import { Component } from '@angular/core/src/metadata/directives';
+import { GoogleMapsComponent } from './components/google-maps/google-maps.component';
+import {GoogleApiService} from './services/google-maps/shared/google-api.service'
+
 
 const routes : Routes = [{
   path : 'Products/:marque', 
@@ -60,6 +65,10 @@ const routes : Routes = [{
   {
     path: 'my-sells',
     component : MySellsComponent
+  },
+  {
+    path: 'my-traject',
+    component: AddTrajetComponent
   },
   {
     path: 'new-sell-form',
@@ -91,9 +100,9 @@ const routes : Routes = [{
 
   
 @NgModule({
-  declarations: [ AppComponent, ResearchComponent, DetailComponent, SiteHeaderComponent,ItemCatDirective,ItemCatComponent,ItemListCatComponent,DragAndDropComponent,DragAndDropDirective, ItemListCatDirective, SiteFooterComponent, LoginFormComponent, ConnectedSiteHeaderComponent, ApplicationFormComponent, ItemListSearchComponent, MySellsComponent, NewSellFormComponent, ShowCategoriesComponent, MyListSellsComponent, ShippingMethodComponent, PrivateShippingChoiceComponent ],
+  declarations: [ AppComponent, ResearchComponent, DetailComponent, SiteHeaderComponent,ItemCatDirective,ItemCatComponent,ItemListCatComponent,DragAndDropComponent,DragAndDropDirective, ItemListCatDirective, SiteFooterComponent, LoginFormComponent, ConnectedSiteHeaderComponent, ApplicationFormComponent, ItemListSearchComponent, MySellsComponent, NewSellFormComponent, ShowCategoriesComponent, MyListSellsComponent, ShippingMethodComponent, PrivateShippingChoiceComponent, AddTrajetComponent, GoogleMapsComponent ],
   imports: [ BrowserModule, FormsModule,ImageUploadModule.forRoot(), HttpModule, RouterModule.forRoot(routes)],
-  providers: [ResearchService, DetailService, AddProductService, HttpModule, LogInService, AuthenGuard, AddUserService, CookieService],
+  providers: [ResearchService,GoogleApiService, DetailService, AddProductService, HttpModule, LogInService, AuthenGuard, AddUserService, CookieService],
   bootstrap: [AppComponent],
   exports: [SiteHeaderComponent]
 })

@@ -1,4 +1,6 @@
-<div class="div_float_left" id="map"></div>
+<div class="div_float_left"  id="mapsh"> <app-google-maps [product]="item" [shippings]="shippings" [calc]=''></app-google-maps></div>
 <div class="div_float_left" style="width:40%;scroll-behavior: auto;">
-	
+	<div *ngFor="let shipping of shippings">
+        <button class="btn btn-primary btn-lg btn-block" (click)="chooseShipping(shipping);">{{shipping.owner}}</button>
+    </div>
 </div>
