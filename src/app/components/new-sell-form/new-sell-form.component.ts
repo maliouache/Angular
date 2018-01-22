@@ -18,8 +18,8 @@ export class NewSellFormComponent implements OnInit {
   private price: Number;
   private category: String;
   private description: String;
-  private longitude: Float32Array;
-  private latitude: Float32Array;
+  private longitude: Number;
+  private latitude: Number;
   private filesToUpload: Array<File>;
   private all: any;
 
@@ -40,6 +40,8 @@ export class NewSellFormComponent implements OnInit {
   }
   save_product() {
     if (this.name) {
+      this.longitude = document.getElementById('item_longitude').value;
+      this.latitude = document.getElementById('item_latitude').value;
       var name2 = this.cookieService.get("ecomm") + "-" + this.name;
       name2.replace(" ", "");
       this.upload(name2);
@@ -54,6 +56,7 @@ export class NewSellFormComponent implements OnInit {
         "description": this.description,
         "imgFolder": "assets/images/" + name2
       });
+      console.log(newProd);
       this.addProd.addProduct(newProd);
       // let reader=new FileReader();
       // var file = this.imgFolder.uploaded_image;

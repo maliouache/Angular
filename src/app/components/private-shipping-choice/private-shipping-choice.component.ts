@@ -14,6 +14,7 @@ export class PrivateShippingChoiceComponent implements OnInit {
   private item:any;
   private shippings:any;
   private map: any;
+  private choosedShipping:any;
   
   constructor(private route : ActivatedRoute,private http:Http,private detail:DetailService, private googleApi:GoogleApiService) { }
 
@@ -31,20 +32,21 @@ export class PrivateShippingChoiceComponent implements OnInit {
       destination : new google.maps.LatLng(shi.latitude_end, shi.longitude_end),
       travelMode  : google.maps.DirectionsTravelMode.DRIVING // Mode de conduite
     }
-    this.googleApi.initMap().then(() => {
-      this.myLatLng={lat:this.product.latitude,lng:this.product.longitude};
-      let latlng = new google.maps.LatLng(this.myLatLng.lat, this.myLatLng.lng);
+    this.choosedShipping=shi;
+    // this.googleApi.initMap().then(() => {
+    //   this.myLatLng={lat:this.product.latitude,lng:this.product.longitude};
+    //   let latlng = new google.maps.LatLng(this.myLatLng.lat, this.myLatLng.lng);
 
-      this.map = new google.maps.Map(document.getElementById('map'), {
-        center: latlng,
-        zoom: 4
-      });
+    //   this.map = new google.maps.Map(document.getElementById('map'), {
+    //     center: latlng,
+    //     zoom: 4
+    //   });
 
-      new google.maps.Marker({
-        position: latlng,
-        map: this.map,
-        title: 'Hello World!'
-      });
+    //   new google.maps.Marker({
+    //     position: latlng,
+    //     map: this.map,
+    //     title: 'Hello World!'
+    //   });
     });
 
     directionsService.route(request, function(result, status) {
