@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {ResearchService} from '../../research.service';
 import { CookieService } from 'ngx-cookie-service';
+import { timeout } from 'rxjs/operator/timeout';
 
 @Component({
   selector: 'app-my-list-sells',

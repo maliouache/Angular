@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params} from '@angular/router';
 import { Http, Response } from '@angular/http';
 import { DetailService } from '../../detail.service';
-import {GoogleApiService} from '../../services/google-maps/shared/google-api.service'
+import {GoogleApiService} from '../../services/google-maps/shared/google-api.service';
 declare var google: any;
 declare var directionsService = new google.maps.DirectionsService();
 @Component({

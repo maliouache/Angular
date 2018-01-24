@@ -72,6 +72,12 @@ mongoClient.connect(url, function (err, db) {
             else res.send('Data received:\n' + JSON.stringify(req.body));
         })
     });
+    app.post('/newTrajet', jsonParser, function (req, res) {
+        db.collection("Shippings2").save(req.body, function (err) {
+            if (err) console.error(err);
+            else res.send('Data received:\n' + JSON.stringify(req.body));
+        })
+    });
     app.post('/addMessage', jsonParser, function (req, res) {
         db.collection("Messages").save(req.body, function (err) {
             if (err) console.error(err);
@@ -119,6 +125,17 @@ mongoClient.connect(url, function (err, db) {
         let mail = req.params.mail;
         let filtre = {}; filtre.email_receiver = mail; filtre.seen="no";
         db.collection("Messages").find(filtre)
+            .toArray(function (err, documents) {
+                res.setHeader('Content-Type', 'application/json; charset=utf-8');
+                res.setHeader('Access-Control-Allow-Origin', '*');
+                var json = JSON.stringify(documents);
+                res.end(json);
+            });
+    });
+    app.get('/getServices/:mail', function (req, res) {
+        let mail = req.params.mail;
+        let filtre = {}; filtre.owner = mail;
+        db.collection("Shippings2").find(filtre)
             .toArray(function (err, documents) {
                 res.setHeader('Content-Type', 'application/json; charset=utf-8');
                 res.setHeader('Access-Control-Allow-Origin', '*');

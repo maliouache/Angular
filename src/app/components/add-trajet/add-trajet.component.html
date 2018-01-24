@@ -1,20 +1,54 @@
 <body>
   <div id="container">
-      <h1>Calcul d'itinéraire</h1>
+    <div *ngFor="let service of services">
+        <h1>my proposed services</h1>
+        <button type="button" class="btn btn-primary btn-block" (click)="showContentMessage(message._id)">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td width="50%">
+                            <b>Departure from : {{service.origin}}</b>
+                        </td>
+                        <td width="30%">To : {{service.detination}}
+                        </td>
+                        <td width="20%">{{service.departure_date}}</td>
+                    </tr>
+                </thead>
+            </table>
+        </button>
+        <div id="{{message._id}}" class="collapse" style="display: none;">
+
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td width="80%">{{service.departure_date}}
+                        </td>
+                        <td width="20%">
+                            <b>Read: {{service.departure_time}}</b>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+      <h1>Ajout d'un service de livraison</h1>
       <div id="destinationForm">
-          <form class="form-horizontal" (ngSubmit)="onSubmit()" role="form" #applicationform="ngForm">
+        <form class="form-horizontal" (ngSubmit)="onSubmit()" role="form" #applicationform="ngForm">
               <label>Point de départ :</label>
-              <input type="text" name="origin" id="origin">
+              <input type="text" [(ngModel)]="origin" name="origin" id="origin">
               <label>Destination :</label>
-              <input type="text" name="destination" id="destination">
-              <input type="button" value="Calculer l'itinéraire" (click)="ngAfterViewInit()">
-          </form>
+              <input type="text" [(ngModel)]="destination" name="destination" id="destination">
+              <label>Date de trajet</label>
+              <input type="date" [(ngModel)]="trajet_date" name="date_trajet" id="date_trajet">
+              <label>Heur de depart</label>
+              <input type="time" [(ngModel)]="trajet_departure" name="depart_time" id="depart_time" step="0">
+              <input type="button" value="Calculer l'itinéraire" (click)="calculate()">
+        </form>
       </div>
-      <div id="panel"></div>
-      
-      <div id="map" #mapRef>
-          <p>Veuillez patienter pendant le chargement de la carte...</p>
+      <div id="map" [style.height]="height" [style.width]="width" [style.margin]="margin">
+        <p>Veuillez patienter pendant le chargement de la carte...</p>
       </div>
-      <div id="googleMap" ></div>
+      <input type="button" value="save" (click)="save_traject()">
   </div>
 </body>
